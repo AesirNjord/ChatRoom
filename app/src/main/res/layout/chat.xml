@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chat"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/background" >
+
+    <ListView
+        android:id="@+id/msgList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/msg"
+            android:layout_width="907dp"
+            android:layout_height="89dp"
+            android:background="@color/white"
+            android:layout_gravity="bottom"
+            android:hint="输入消息" />
+
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="117dp"
+            android:layout_height="89dp"
+            android:background="#08F3BC"
+            android:hint="发送" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
