@@ -1,6 +1,7 @@
 package com.example.chatroom;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,5 +23,11 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login);
         sign = findViewById(R.id.sign);
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 }
