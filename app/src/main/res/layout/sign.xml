@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
+        android:inputType="numberSigned"
         android:hint="输入账号" />
 
     <EditText
