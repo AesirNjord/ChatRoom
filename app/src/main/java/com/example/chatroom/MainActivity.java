@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         sign = findViewById(R.id.sign);
+        dbHelper = new MyDatabaseHelper(this,"User.db",null,1);
+
 
 
 
@@ -34,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                Cursor cursor = db.query("User", new String[]{"Account=?"},account.toString(),null,null,null,null);
-                if(cursor!=null&&(cursor.getColumnIndex("password")!=-1)){
-                    int index = cursor.getColumnIndex("password");
-                    if(password.getText().toString().equals(cursor.getString(index))){
+                Cursor cursor = db.rawQuery("select * from User where Account=?",new String[]{account.getText().toString()});
+                if(cursor!=null){
+                    cursor.moveToFirst();
+                    int index = cursor.getColumnIndex("Password");
+                    String key = cursor.getString(index);
+                    Log.d("password",cursor.getString(index));
+                    if(password.getText().toString().equals(key)){
                         Intent intent = new Intent(MainActivity.this,FriendListActivity.class);
                         intent.putExtra("account",account.getText().toString());
                         startActivity(intent);

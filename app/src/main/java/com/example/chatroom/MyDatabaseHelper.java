@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public static final String Create_User = "Create Table User("
-            + "Account integer primary key,"
+            + "Account string primary key,"
             + "Password string)";
 
     private Context mContext;

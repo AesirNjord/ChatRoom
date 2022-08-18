@@ -42,7 +42,7 @@ public class SignActivity extends AppCompatActivity {
                 }else{
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
                     ContentValues values = new ContentValues();
-                    values.put("Account",Integer.parseInt(SAccount.getText().toString()));
+                    values.put("Account",SAccount.getText().toString());
                     values.put("Password", SPassword.getText().toString());
                     db.insert("User",null,values);
                     Intent intent = new Intent(SignActivity.this,FriendListActivity.class);
